@@ -1,3 +1,5 @@
+import { statusBar } from '../commons/utils'
+
 @Entry
 @Component
 struct Index {
@@ -8,7 +10,15 @@ struct Index {
   build() {
     Column() {
       Text('top')
-      Blank()
+      Row() {
+        Button('Light').onClick(() => {
+          statusBar.setLightBar()
+        })
+        Button('Dark').onClick(() => {
+          statusBar.setDarkBar()
+        })
+      }
+
       Text('bottom')
     }
     .width('100%')
