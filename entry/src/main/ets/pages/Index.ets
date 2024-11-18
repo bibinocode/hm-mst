@@ -1,20 +1,22 @@
 @Entry
 @Component
 struct Index {
-  @State message: string = 'Hello World';
+  // 从Appstore context中获取值
+  @StorageProp('topHeight') topHeight: number = 0
+  @StorageProp('bottomHeight') bottomHeight: number = 0
 
   build() {
-    RelativeContainer() {
-      Text(this.message)
-        .id('HelloWorld')
-        .fontSize(50)
-        .fontWeight(FontWeight.Bold)
-        .alignRules({
-          center: { anchor: '__container__', align: VerticalAlign.Center },
-          middle: { anchor: '__container__', align: HorizontalAlign.Center }
-        })
+    Column() {
+      Text('top')
+      Blank()
+      Text('bottom')
     }
-    .height('100%')
     .width('100%')
+    .height('100%')
+    .backgroundColor('red')
+    .padding({
+      top: this.topHeight,
+      bottom: this.bottomHeight
+    })
   }
 }
