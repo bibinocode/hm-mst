@@ -1,8 +1,9 @@
-import { HcSearchBox } from '../commons/components'
+import { HcClockIn, HcSearchBox } from '../commons/components'
 
 @Component
 export struct HomePage {
   @StorageProp('topHeight') topHeight: number = 0
+  @State clockInCount: number = 0
 
   build() {
     Column() {
@@ -11,6 +12,9 @@ export struct HomePage {
           .width(24)
           .aspectRatio(1)
         HcSearchBox({ layoutWeightValue: 1 })
+        HcClockIn({
+          clockInCount: this.clockInCount
+        })
       }
       .width('100%')
       .height(64)
