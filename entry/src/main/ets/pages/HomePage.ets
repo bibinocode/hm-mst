@@ -1,4 +1,5 @@
 import { HcClockIn, HcSearchBox } from '../commons/components'
+import { HomeCategory } from '../views/Home/HomeCategory'
 
 @Component
 export struct HomePage {
@@ -47,6 +48,14 @@ export struct HomePage {
         .selectedItemHeight(4)
         .selectedColor($r('app.color.white'))
       )
+
+      // 试题
+      Column() {
+        HomeCategory()
+      }
+      .width('100%')
+      .layoutWeight(1)
+      .backgroundColor($r('app.color.white'))
     }
     .width('100%')
     .height('100%')
